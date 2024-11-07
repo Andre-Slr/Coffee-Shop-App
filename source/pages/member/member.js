@@ -6,6 +6,10 @@ import { supabase } from '../../supabase/Supabase';
 import { Const_styles } from '../../styles/constStyles';
 import { FlatList } from 'react-native-gesture-handler';
 
+/*
+    https://reactnavigation.org/docs/tab-based-navigation
+*/
+
 const Member = ({ navigation })  => {
     const [elements, setElements] = useState([]);
     const [alignContent, setAlignContent] = useState('flex-start');
@@ -46,7 +50,7 @@ const Member = ({ navigation })  => {
         }
 
         if (a == null) {
-            navigation.navigate('Login');
+            navigation.navigate('Chatbot');
         }
     }
 
@@ -54,38 +58,43 @@ const Member = ({ navigation })  => {
     const renderItem = ({ item }) => {
         return (
             <View style={{
-                width: 150,
-                margin: 10,
+                width: 120,
+                margin: 5,
                 alignItems: 'center',
             }}>
-                <TouchableOpacity onPress={() => seeDetail(item)} activeOpacity={0.7}>
+                <TouchableOpacity onPress={() => seeDetail(item)} activeOpacity={0.7} style={{
+                    backgroundColor: Const_styles.Color_4,
+                    borderRadius: 15,
+                    padding: 5,
+                }}>
                     <Image 
                         style={{
-                            width: 120,
+                            width: 100,
                             height: 100,
-                            borderRadius: 15,
-                            marginBottom: 10,
+                            borderRadius: 10,
+                            marginBottom: -10,
+                            marginHorizontal: 'auto',
                             resizeMode: 'cover',
                         }}
                         source={{ uri: item.image }}
                     />
                     
                     <View style={{
-                        width: 140,
-                        padding: 10,
+                        width: 100,
+                        padding: 5,
                         backgroundColor: Const_styles.Color_4,
-                        borderRadius: 15,
+                        borderRadius: 40,
                         alignItems: 'center',
                     }}>
                         <Text style={{
-                            fontSize: 18,
+                            fontSize: 12,
                             fontWeight: 'bold',
                             color: Const_styles.Color_1,
                             textAlign: 'center',
                         }}>{item.name}</Text>
     
                         <Text style={{
-                            fontSize: 18,
+                            fontSize: 12,
                             color: Const_styles.Color_1,
                             textAlign: 'center',
                         }}>${item.price}</Text>
@@ -99,6 +108,14 @@ const Member = ({ navigation })  => {
 
     return (
         <View style={Styles.Body}>
+            <View style={{
+                height: 155,
+                backgroundColor: Const_styles.Color_5,
+                marginBottom: -140,
+                borderBottomLeftRadius: 50,
+                borderBottomRightRadius: 50,
+            }}/>
+                    
             <Text style={{
                 fontSize: 20,
                 fontWeight: 600,
@@ -113,8 +130,8 @@ const Member = ({ navigation })  => {
                     data={elements}
                     renderItem={renderItem}
                     keyExtractor={(item) => item.id}
-                    numColumns={2}
-                    contentContainerStyle={{ paddingHorizontal: 16, paddingBottom: 16 }}
+                    numColumns={3}
+                    contentContainerStyle={{ paddingHorizontal: 0, paddingBottom: 16 }}
                     showsVerticalScrollIndicator={false}
                 />
 
@@ -140,7 +157,7 @@ const Styles = StyleSheet.create ({
         height:'100%',
         width:'100%',
         marginHorizontal:'auto',
-        padding:5,
+        padding:'',
         color: '#ddd',
         backgroundColor: Const_styles.Color_3,
     },

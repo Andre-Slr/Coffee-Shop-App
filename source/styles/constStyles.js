@@ -8,4 +8,6 @@ export const Const_styles = {
     Color_3 : "#D8CFBC",
     // Floral White
     Color_4 : "#FFFBF4",
+    // Coffee Brown
+    Color_5 : "#884126",
 }

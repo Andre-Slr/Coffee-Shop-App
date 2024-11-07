@@ -55,7 +55,7 @@ const Login = ({ route, navigation })  => {
         // console.log('Deslogueado')
       } else {
         navigation.navigate('Member')
-        console.log('Logueado ' + a)
+        console.log('Logueado: ' + a)
       } 
     }
 

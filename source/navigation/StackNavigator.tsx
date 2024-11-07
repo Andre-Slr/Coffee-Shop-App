@@ -1,11 +1,11 @@
 import {createStackNavigator} from '@react-navigation/stack';
 
 import Login from '../pages/login/Login';
-import Home from '../pages/homepage/Home';
 import Signup from '../pages/login/Signup';
 import Member from '../pages/member/member';
-import Drawer from './Drawer';
+import MyDrawer from './Drawer';
 import Details from '../pages/product/Details';
+import Chatbot from '../pages/chatbot/chatbot';
 
 import {Const_styles} from '../styles/constStyles';
 
@@ -17,7 +17,7 @@ export default function StackNavigator() {
       screenOptions={{
         headerShown: true,
         headerTitleAlign: 'center',
-        animationEnabled: true,
+        animationEnabled: false,
         cardStyle: {backgroundColor: 'white'},
       }}>
       <Stack.Screen
@@ -41,7 +41,7 @@ export default function StackNavigator() {
           },
         }}
       />
-
+{/*
       <Stack.Screen
         name="Home"
         component={Home}
@@ -53,15 +53,18 @@ export default function StackNavigator() {
           },
         }}
       />
+ */}
 
       <Stack.Screen
         name="Member"
         component={Member}
         options={{
+          headerShown: false,
           title: 'Member',
           //headerShown: false,
           headerStyle: {
-            backgroundColor: Const_styles.Color_3,
+            backgroundColor: Const_styles.Color_5,
+            shadowOpacity: 0,
           },
         }}
       />
@@ -73,21 +76,24 @@ export default function StackNavigator() {
           title: 'Details',
           //headerShown: false,
           headerStyle: {
-            backgroundColor: Const_styles.Color_3,
+            backgroundColor: Const_styles.Color_5,
+            shadowOpacity: 0,
           },
         }}
       />
 
       <Stack.Screen
-        name="Drawer"
-        component={Drawer}
-        options={{
-          title: 'Home',
-          headerStyle: {
-            backgroundColor: Const_styles.Color_3,
-          },
-        }}
+        name="MyDrawer"
+        component={MyDrawer}
+        options={{ headerShown: false }}
       />
+
+      <Stack.Screen
+        name='Chatbot'
+        component={Chatbot}
+        options={{ headerShown: false }}
+        />
+
     </Stack.Navigator>
   );
 }

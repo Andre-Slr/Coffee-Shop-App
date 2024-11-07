@@ -7,44 +7,68 @@ const Details = ({ navigation, route })  => {
 
     return(
         <View style={Styles.Body}>
+        <View style={{
+            height: 100,
+            backgroundColor: Const_styles.Color_5,
+            marginBottom: -100,
+            borderBottomLeftRadius: 50,
+            borderBottomRightRadius: 50,
+        }}/>
             <View style={{
                 margin: 5,
+            }}/>
+            <View style={{
+                width: '95%',
+                marginHorizontal: 'auto',
+                marginTop: 130,
+                padding: 10,
+                paddingTop: 60,
+                backgroundColor: Const_styles.Color_4,
+                borderRadius: 25,
             }}>
-                <View style={{
-                    width: '95%',
-                    marginHorizontal: 'auto',
-                    marginTop: 130,
-                    padding: 10,
-                    paddingTop: 60,
-                    backgroundColor: Const_styles.Color_4,
-                    borderRadius: 25,
-                }}>
-                    <Image 
-                        style={{
-                            width:200,
-                            height:240,
-                            borderRadius:25,
-                            marginTop: -200,
-                            marginHorizontal: 'auto',
-                        }}
-                        source={{uri:(item.image)}}/>
-                    <Text style={{
-                        fontSize: 25,
-                        fontWeight: 800,
-                        color: Const_styles.Color_1,
-                        textAlign: 'center',
-                        marginTop: 10,
-                    }}>{item.name}</Text>
+                <Image 
+                    style={{
+                        width:200,
+                        height:240,
+                        borderRadius:25,
+                        marginTop: -200,
+                        marginHorizontal: 'auto',
+                    }}
+                    source={{uri:(item.image)}}/>
+                <Text style={{
+                    fontSize: 25,
+                    fontWeight: 800,
+                    color: Const_styles.Color_1,
+                    textAlign: 'center',
+                    marginTop: 10,
+                }}>{item.name}</Text>
 
-                    <Text style={{
-                        fontSize: 18,
-                        fontWeight: 400,
-                        color: Const_styles.Color_1,
-                        textAlign: 'left',
-                        margin: 10,
-                    }}>{item.description}</Text>
-                    
-                </View>
+                <Text style={{
+                    fontSize: 18,
+                    fontWeight: 400,
+                    color: Const_styles.Color_1,
+                    textAlign: 'left',
+                    margin: 10,
+                }}>{item.description}</Text>
+                
+                <Text style={{
+                    fontSize: 18,
+                    fontWeight: 400,
+                    color: Const_styles.Color_1,
+                    textAlign: 'left',
+                    margin: 5,
+                    marginLeft:10,
+                }}>Precio: ${item.price}</Text>
+                
+                <Text style={{
+                    fontSize: 18,
+                    fontWeight: 400,
+                    color: Const_styles.Color_1,
+                    textAlign: 'left',
+                    margin: 5,
+                    marginLeft:10,
+                }}>Disponibles: {item.quantity}</Text>
+                
             </View>
         </View>
     )
@@ -56,7 +80,7 @@ const Styles = StyleSheet.create ({
         height:'100%',
         width:'100%',
         marginHorizontal:'auto',
-        padding:5,
+        padding:0,
         color: '#ddd',
         backgroundColor: Const_styles.Color_3,
     },

@@ -1,27 +1,24 @@
-import React from "react";
 import { Text, View, StyleSheet } from "react-native";
 
 import { Const_styles } from "../../styles/constStyles";
 
-const Home = ({ route }) => {
-    const { userEmail } = route.params;
+const Chatbot = () => {
 
     return(
         <View style={Styles.Body}>
-            <Text>Hiii, {userEmail}</Text>
+            <Text>Hi</Text>
         </View>
     )
 }
-
 
 const Styles = StyleSheet.create ({
     Body: {
         height:'100%',
         width:'100%',
         marginHorizontal:'auto',
-        padding:30,
+        padding:'',
         color: '#ddd',
-        backgroundColor: Const_styles.Color_4,
+        backgroundColor: Const_styles.Color_3,
     },
     Input: {
         fontSize:20,
@@ -40,6 +37,7 @@ const Styles = StyleSheet.create ({
         backgroundColor: Const_styles.Color_2,
         borderRadius:20,
     },
-})
+  })
 
-export default Home;
+
+export default Chatbot;
