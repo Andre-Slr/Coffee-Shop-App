@@ -41,7 +41,7 @@ export default function StackNavigator() {
           },
         }}
       />
-{/*
+      {/*
       <Stack.Screen
         name="Home"
         component={Home}
@@ -85,15 +85,14 @@ export default function StackNavigator() {
       <Stack.Screen
         name="MyDrawer"
         component={MyDrawer}
-        options={{ headerShown: false }}
+        options={{headerShown: false}}
       />
 
       <Stack.Screen
-        name='Chatbot'
+        name="Chatbot"
         component={Chatbot}
-        options={{ headerShown: false }}
-        />
-
+        options={{headerShown: false}}
+      />
     </Stack.Navigator>
   );
 }

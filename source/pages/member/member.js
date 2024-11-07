@@ -1,6 +1,7 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import React, { useEffect, useState } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, Alert, Image, ScrollView} from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity, Alert, Image, ScrollView, BackHandler, ToastAndroid} from 'react-native';
+import { useFocusEffect } from '@react-navigation/native'; // Importa useFocusEffect
 
 import { supabase } from '../../supabase/Supabase';
 import { Const_styles } from '../../styles/constStyles';
@@ -13,6 +14,7 @@ import { FlatList } from 'react-native-gesture-handler';
 const Member = ({ navigation })  => {
     const [elements, setElements] = useState([]);
     const [alignContent, setAlignContent] = useState('flex-start');
+    const [backPressCount, setBackPressCount] = useState(0);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -36,6 +38,32 @@ const Member = ({ navigation })  => {
         fetchData();
     }, []);
 
+    useFocusEffect(
+        React.useCallback(() => {
+            const onBackPress = () => {
+                if (backPressCount === 0) {
+                    setBackPressCount(1);
+                    ToastAndroid.show("Presiona de nuevo para salir", ToastAndroid.SHORT);
+
+                    setTimeout(() => {
+                        setBackPressCount(0); // Reinicia el contador después de 2 segundos
+                    }, 1000);
+
+                return true; // Evita que se ejecute la acción de retroceso en esta pantalla
+                } else if (backPressCount === 1) {
+                    BackHandler.exitApp(); // Sale de la aplicación al segundo clic
+                }
+            };
+    
+            // Añade el listener cuando la pantalla está enfocada
+            const backHandler = BackHandler.addEventListener('hardwareBackPress', onBackPress);
+    
+            // Remueve el listener cuando la pantalla pierde el enfoque
+            return () => backHandler.remove();
+        }, [backPressCount])
+    );
+    
+
     const seeDetail = (item) => {
         navigation.navigate('Details', {item: item});
     }
@@ -50,7 +78,7 @@ const Member = ({ navigation })  => {
         }
 
         if (a == null) {
-            navigation.navigate('Chatbot');
+            navigation.navigate('Login');
         }
     }
 
@@ -131,7 +159,7 @@ const Member = ({ navigation })  => {
                     renderItem={renderItem}
                     keyExtractor={(item) => item.id}
                     numColumns={3}
-                    contentContainerStyle={{ paddingHorizontal: 0, paddingBottom: 16 }}
+                    contentContainerStyle={{ marginHorizontal: 'auto', paddingBottom: 16 }}
                     showsVerticalScrollIndicator={false}
                 />
 
@@ -148,6 +176,18 @@ const Member = ({ navigation })  => {
                     }}>Desloguear</Text>
                 </View>
             </TouchableOpacity>
+            <TouchableOpacity onPress={() => navigation.navigate('Chatbot')}>
+                <View style={Styles.Button}>
+                    <Text style={{
+                        fontSize: 20,
+                        color: '#fff',
+                        marginTop:10,
+                        marginHorizontal:'auto',
+                        fontWeight:500,
+                    }}>Chatbot</Text>
+                </View>
+            </TouchableOpacity>
+            
         </View>
     );
 }
@@ -172,7 +212,7 @@ const Styles = StyleSheet.create ({
         color: '#222',
     },
     Button:{
-        width:'100%',
+        width:'50%',
         height: 50,
         marginHorizontal:'auto',
         backgroundColor: Const_styles.Color_2,

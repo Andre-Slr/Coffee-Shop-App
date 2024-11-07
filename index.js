@@ -1,3 +1,4 @@
+import 'react-native-gesture-handler';
 import './source/navigation/gesture-handler';
 /**
  * @format

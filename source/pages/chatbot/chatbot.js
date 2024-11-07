@@ -1,4 +1,4 @@
-import { Text, View, StyleSheet } from "react-native";
+import { Text, View, StyleSheet, Image } from "react-native";
 
 import { Const_styles } from "../../styles/constStyles";
 
@@ -6,6 +6,11 @@ const Chatbot = () => {
 
     return(
         <View style={Styles.Body}>
+            <Image source={require('../../assets/components/Background.png')} style={{
+                width: '100%', 
+                height: '100%', 
+                marginBottom: '-190%',
+            }}/>
             <Text>Hi</Text>
         </View>
     )
@@ -16,7 +21,6 @@ const Styles = StyleSheet.create ({
         height:'100%',
         width:'100%',
         marginHorizontal:'auto',
-        padding:'',
         color: '#ddd',
         backgroundColor: Const_styles.Color_3,
     },
