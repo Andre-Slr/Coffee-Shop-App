@@ -36,7 +36,7 @@ const Login = ({ route, navigation })  => {
       Alert.alert('Intenta otra vez')
     } else {
       try {
-        navigation.navigate('Member')
+        navigation.navigate('MyDrawer')
         await AsyncStorage.setItem('atlas', username)
       } catch(e){
         // errores
@@ -54,7 +54,7 @@ const Login = ({ route, navigation })  => {
       if(a == null){
         // console.log('Deslogueado')
       } else {
-        navigation.navigate('Member')
+        navigation.navigate('MyDrawer')
         console.log('Logueado: ' + a)
       } 
     }
@@ -64,11 +64,21 @@ const Login = ({ route, navigation })  => {
 
   return (
     <View style={Styles.Body}>
-      <View style={{height:300}}>
+      <View style={{
+          height: 155,
+          backgroundColor: Const_styles.Color_5,
+          marginBottom: -140,
+          borderBottomLeftRadius: 50,
+          borderBottomRightRadius: 50,
+      }}/>
+      <View style={{
+        height:300,
+        padding: 30}}>
         <View>
           <TextInput
             style={Styles.Input}
             placeholder='email'
+            placeholderTextColor={Const_styles.Color_2}
             autoCapitalize='none'
             textAlign='center'
             onChangeText={setUsername}
@@ -81,6 +91,7 @@ const Login = ({ route, navigation })  => {
           <TextInput
               style={Styles.Input}
               placeholder='password'
+              placeholderTextColor={Const_styles.Color_2}
               autoCapitalize='none'
               secureTextEntry={true}
               textAlign='center'
@@ -123,9 +134,8 @@ const Styles = StyleSheet.create ({
       height:'100%',
       width:'100%',
       marginHorizontal:'auto',
-      padding:30,
       color: '#ddd',
-      backgroundColor: Const_styles.Color_4,
+      backgroundColor: Const_styles.Color_3,
   },
   Input: {
       fontSize:20,
@@ -134,14 +144,14 @@ const Styles = StyleSheet.create ({
       borderRadius:20,
       marginVertical:15,
       marginHorizontal:'auto',
-      backgroundColor: Const_styles.Color_3,
+      backgroundColor: Const_styles.Color_4,
       color: '#222',
   },
   Button:{
       width:'100%',
       height: 50,
       marginHorizontal:'auto',
-      backgroundColor: Const_styles.Color_2,
+      backgroundColor: Const_styles.Color_5,
       borderRadius:20,
   },
 })

@@ -13,6 +13,7 @@ import { FlatList } from 'react-native-gesture-handler';
 
 const Member = ({ navigation })  => {
     const [elements, setElements] = useState([]);
+    const [categories, setCategories] = useState([]);
     const [alignContent, setAlignContent] = useState('flex-start');
     const [backPressCount, setBackPressCount] = useState(0);
 
@@ -22,13 +23,36 @@ const Member = ({ navigation })  => {
                 let { data: CoffeeShop, error } = await supabase
                 .from('CoffeeShop')
                 .select('*')
-                .order('id', { ascending: true });
+                .order('id', { ascending: true })
+                .neq('id', 9);
 
                 if(error){
                     console.log(error)
                 } else {
                     setElements(CoffeeShop);
                     //console.log(elements);
+                }
+            } catch (error) {
+                console.log('Error: ' + error);
+            }
+        }
+
+        fetchData();
+    }, []);
+
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                let { data: Categories, error } = await supabase
+                  .from('Categories')
+                  .select('*')
+                  .order('id', { ascending: true });
+
+                if(error){
+                    console.log(error)
+                } else {
+                    setCategories(Categories);
+                    //console.log(categories);
                 }
             } catch (error) {
                 console.log('Error: ' + error);
@@ -82,6 +106,35 @@ const Member = ({ navigation })  => {
         }
     }
 
+    const renderItemCat = ({ item }) => {
+        return (
+            <View style={{
+                margin: 5,
+                alignItems: 'center',
+            }}>
+                <TouchableOpacity onPress={() => null} activeOpacity={0.7} style={{
+                    backgroundColor: Const_styles.Color_4,
+                    borderRadius: 15,
+                    padding: 5,
+                }}>                    
+                    <View style={{
+                        paddingHorizontal: 10,
+                        paddingVertical: 5,
+                        backgroundColor: Const_styles.Color_4,
+                        borderRadius: 40,
+                        alignItems: 'center',
+                    }}>
+                        <Text style={{
+                            fontSize: 12,
+                            fontWeight: 'bold',
+                            color: Const_styles.Color_1,
+                            textAlign: 'center',
+                        }}>{item.category}</Text>
+                    </View>
+                </TouchableOpacity>
+            </View>
+        )
+    }
 
     const renderItem = ({ item }) => {
         return (
@@ -148,11 +201,38 @@ const Member = ({ navigation })  => {
                 fontSize: 20,
                 fontWeight: 600,
                 textAlign: 'center',
-            }}>BIENVENIDO!</Text>
+                marginBottom: 20,
+            }}>BIENVENIDO</Text>
+
+            {/* Search bar */}
+            <View style={{
+                width: '85%',
+                height: 35,
+                marginHorizontal: 'auto',
+                borderRadius: 20,
+                backgroundColor: Const_styles.Color_4,
+            }}/>
+
+            <View style={{
+                marginTop:10,
+                height: 50,
+                marginHorizontal: 'auto',
+                width: '95%'
+            }}>
+                <FlatList
+                    horizontal
+                    data={categories}
+                    renderItem={renderItemCat}
+                    showsHorizontalScrollIndicator={false}                    
+                    keyExtractor={(item) => item.id}
+                />
+
+            </View>
 
             <View style={{
                 marginVertical:10,
-                height: '80%',
+                marginBottom: 20,
+                height: '60%',
             }}>
                 <FlatList
                     data={elements}
@@ -176,17 +256,6 @@ const Member = ({ navigation })  => {
                     }}>Desloguear</Text>
                 </View>
             </TouchableOpacity>
-            <TouchableOpacity onPress={() => navigation.navigate('Chatbot')}>
-                <View style={Styles.Button}>
-                    <Text style={{
-                        fontSize: 20,
-                        color: '#fff',
-                        marginTop:10,
-                        marginHorizontal:'auto',
-                        fontWeight:500,
-                    }}>Chatbot</Text>
-                </View>
-            </TouchableOpacity>
             
         </View>
     );
@@ -197,7 +266,6 @@ const Styles = StyleSheet.create ({
         height:'100%',
         width:'100%',
         marginHorizontal:'auto',
-        padding:'',
         color: '#ddd',
         backgroundColor: Const_styles.Color_3,
     },

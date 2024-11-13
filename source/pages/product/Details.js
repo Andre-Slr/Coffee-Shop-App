@@ -8,9 +8,9 @@ const Details = ({ navigation, route })  => {
     return(
         <View style={Styles.Body}>
         <View style={{
-            height: 100,
+            height: 155,
             backgroundColor: Const_styles.Color_5,
-            marginBottom: -100,
+            marginBottom: -140,
             borderBottomLeftRadius: 50,
             borderBottomRightRadius: 50,
         }}/>
@@ -20,7 +20,7 @@ const Details = ({ navigation, route })  => {
             <View style={{
                 width: '95%',
                 marginHorizontal: 'auto',
-                marginTop: 130,
+                marginTop: 150,
                 padding: 10,
                 paddingTop: 60,
                 backgroundColor: Const_styles.Color_4,

@@ -21,12 +21,18 @@ export default function StackNavigator() {
         cardStyle: {backgroundColor: 'white'},
       }}>
       <Stack.Screen
+        name="MyDrawer"
+        component={MyDrawer}
+        options={{headerShown: false}}
+      />
+
+      <Stack.Screen
         name="Login"
         component={Login}
         options={{
           title: 'Login',
           headerStyle: {
-            backgroundColor: Const_styles.Color_3,
+            backgroundColor: Const_styles.Color_5,
           },
         }}
       />
@@ -37,23 +43,10 @@ export default function StackNavigator() {
         options={{
           title: 'Signup',
           headerStyle: {
-            backgroundColor: Const_styles.Color_3,
+            backgroundColor: Const_styles.Color_5,
           },
         }}
       />
-      {/*
-      <Stack.Screen
-        name="Home"
-        component={Home}
-        options={{
-          title: 'Home',
-          //headerShown: false,
-          headerStyle: {
-            backgroundColor: Const_styles.Color_3,
-          },
-        }}
-      />
- */}
 
       <Stack.Screen
         name="Member"
@@ -83,15 +76,14 @@ export default function StackNavigator() {
       />
 
       <Stack.Screen
-        name="MyDrawer"
-        component={MyDrawer}
-        options={{headerShown: false}}
-      />
-
-      <Stack.Screen
         name="Chatbot"
         component={Chatbot}
-        options={{headerShown: false}}
+        options={{
+          headerStyle: {
+            backgroundColor: Const_styles.Color_5,
+            shadowOpacity: 0,
+          },
+        }}
       />
     </Stack.Navigator>
   );
