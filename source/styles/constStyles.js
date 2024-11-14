@@ -10,4 +10,6 @@ export const Const_styles = {
     Color_4 : "#FFFBF4",
     // Coffee Brown
     Color_5 : "#884126",
+    // Coffee Brown Shadow
+    Color_6 : "#502716",
 }
