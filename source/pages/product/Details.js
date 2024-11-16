@@ -1,9 +1,29 @@
 import { Text, View, Image, StyleSheet } from 'react-native';
 
 import { Const_styles } from '../../styles/constStyles';
+import { FlatList } from 'react-native-gesture-handler';
 
 const Details = ({ navigation, route })  => {
     const {item} = route.params;
+    const categories = Array.isArray(item.categories) ? item.categories : [];
+
+    const renderItemCat = ({ item }) => {
+        return (
+            <View style={{
+                margin: 5,
+                padding: 12,
+                alignItems: 'center',
+                backgroundColor: Const_styles.Color_5,
+                borderRadius: 20
+            }}>
+                <Text style={{
+                    fontSize: 13,
+                    fontWeight: 'bold',
+                    color: Const_styles.Color_4,
+                }}>{item}</Text>
+            </View>
+        )
+    }
 
     return(
         <View style={Styles.Body}>
@@ -52,23 +72,34 @@ const Details = ({ navigation, route })  => {
                 }}>{item.description}</Text>
                 
                 <Text style={{
-                    fontSize: 18,
+                    fontSize: 16,
                     fontWeight: 400,
                     color: Const_styles.Color_1,
                     textAlign: 'left',
                     margin: 5,
                     marginLeft:10,
-                }}>Precio: ${item.price}</Text>
-                
-                <Text style={{
-                    fontSize: 18,
-                    fontWeight: 400,
-                    color: Const_styles.Color_1,
-                    textAlign: 'left',
-                    margin: 5,
-                    marginLeft:10,
-                }}>Disponibles: {item.quantity}</Text>
-                
+                }}>Precio: ${item.price}</Text>                
+
+                <View>
+                    <Text style={{
+                        fontSize: 16,
+                        fontWeight: 400,
+                        color: Const_styles.Color_1,
+                        textAlign: 'left',
+                        margin: 5,
+                        marginLeft:10,
+                    }}>Categorías: 
+                    </Text>
+                    <FlatList
+                    data={categories}
+                    renderItem={renderItemCat}
+                    keyExtractor={(item, index) => item.index}
+                    numColumns={3}
+                    showsVerticalScrollIndicator={false}
+                    contentContainerStyle={{ marginHorizontal: 'auto', paddingBottom: 16 }}
+                    style={{
+                    }}/>
+                </View>
             </View>
         </View>
     )

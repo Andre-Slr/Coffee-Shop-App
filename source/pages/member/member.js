@@ -31,7 +31,8 @@ const Member = ({ navigation })  => {
 
                     supabase.from('Categories')
                     .select('*')
-                    .order('id', { ascending: true }),
+                    //.order('id', { ascending: true }),
+                    .order('category', { ascending: true })
                 ]);
 
                 if (coffeeError) console.log(coffeeError);
