@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1016681221729",
+    "project_id": "siiapp2",
+    "storage_bucket": "siiapp2.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1016681221729:android:18c8279152c808190ce420",
+        "android_client_info": {
+          "package_name": "com.supabaseapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCjgpOeecCyNeqD5y_YxetzRO1QwCB343E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
