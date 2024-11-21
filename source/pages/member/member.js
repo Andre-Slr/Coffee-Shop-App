@@ -1,6 +1,6 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import React, { useEffect, useState } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, TextInput, Image, ScrollView, BackHandler, ToastAndroid} from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity, TextInput, Image, ScrollView, BackHandler, ToastAndroid, Alert} from 'react-native';
 import { useFocusEffect } from '@react-navigation/native'; // Importa useFocusEffect
 
 import { supabase } from '../../supabase/Supabase';
@@ -17,6 +17,7 @@ const Member = ({ navigation })  => {
     const [backPressCount, setBackPressCount] = useState(0);
     const [searchProd, setSearchProd] = useState("");
     const [searchCat, setSearchCat] = useState("");
+    const [productList, setProductList] = useState([]);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -35,11 +36,21 @@ const Member = ({ navigation })  => {
                     .order('category', { ascending: true })
                 ]);
 
-                if (coffeeError) console.log(coffeeError);
-                else setElements(coffeeShopData);
-
-                if (categoryError) console.log(categoryError);
-                else setCategories(categoriesData);
+                if (coffeeError) { 
+                    if (coffeeError.message == "TypeError: Network request failed") {
+                        Alert.alert("Fallo en la conexión", "Favor de conectarse a internet");
+                    } else console.log(coffeeError)
+                } 
+                else if (categoryError) { 
+                    if (categoryError.message == "TypeError: Network request failed") {
+                        Alert.alert("Fallo en la conexión", "Favor de conectarse a internet");
+                    } else console.log(categoryError)
+                } 
+                else {
+                    setElements(coffeeShopData);
+                    setProductList(coffeeShopData);
+                    setCategories(categoriesData);
+                };
 
             } catch (error) {
                 console.log('Error: ' + error);
@@ -89,7 +100,24 @@ const Member = ({ navigation })  => {
 
     const selectCatAndSearch = (id) => {
         setSearchCat(id); // Actualiza el estado con el id de la categoría seleccionada
-        searchAgain(id);  // Llama a searchAgain inmediatamente con el id de la categoría
+        // Filtra los elementos localmente por categoría
+        const filteredByCategory = productList.filter((product) =>
+            product.category_id === id // Asumiendo que tienes una propiedad `category_id` en los productos
+        );
+    
+        setElements(filteredByCategory); // Actualiza los elementos visibles
+    };
+    
+    const handleSearch = (query) => {
+        setSearchProd(query); // Actualiza el estado del texto de búsqueda
+    
+        // Filtra por nombre usando `query` y, opcionalmente, por categoría
+        const filteredBySearch = productList.filter((product) =>
+            product.name.toLowerCase().includes(query.toLowerCase()) &&
+            (!searchCat || product.category_id === searchCat) // Si hay una categoría seleccionada, aplica el filtro
+        );
+    
+        setElements(filteredBySearch); // Actualiza los elementos visibles
     };
     
     // Observa los cambios en searchCat y ejecuta searchAgain si cambia la categoría seleccionada
@@ -191,7 +219,7 @@ const Member = ({ navigation })  => {
                 style={Styles.SearchInput}
                 placeholder='Busca un producto'
                 placeholderTextColor={Const_styles.Color_2}
-                onChangeText={setSearchProd}
+                onChangeText={handleSearch}
                 onSubmitEditing={() => searchAgain(searchCat, searchProd)}
                 />
 
