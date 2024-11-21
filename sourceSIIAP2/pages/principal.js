@@ -50,7 +50,7 @@ const Styles = StyleSheet.create({
   },
   ApartadoBloque: {
     width: '25%',
-    height: 60,
+    height: 50,
     backgroundColor: MyStyles.mainColor,
     margin: 10,
     borderRadius: 18,

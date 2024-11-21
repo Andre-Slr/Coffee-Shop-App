@@ -1,5 +1,5 @@
 {
-  "creditosAdquiridos": 377,
+  "creditosAdquiridos": 300,
   "tipoCertificado": "PARCIAL",
   "promedio": 97.56,
   "materias": [
@@ -516,32 +516,32 @@
   ],
   "creditosArea": [
     {
-      "creditosAdquiridos": 50,
-      "diferencia": 0,
+      "creditosAdquiridos": 29,
+      "diferencia": 21,
       "area": "ESPECIALIZANTE OBLIGATORIA",
       "creditosRequeridos": 50
     },
     {
-      "creditosAdquiridos": 16,
-      "diferencia": 0,
+      "creditosAdquiridos": 12,
+      "diferencia": 4,
       "area": "ESPECIALIZANTE SELECTIVA",
       "creditosRequeridos": 16
     },
     {
-      "creditosAdquiridos": 18,
-      "diferencia": 0,
+      "creditosAdquiridos": 10,
+      "diferencia": 6,
       "area": "OPTATIVA ABIERTA",
       "creditosRequeridos": 16
     },
     {
-      "creditosAdquiridos": 149,
-      "diferencia": 0,
+      "creditosAdquiridos": 96,
+      "diferencia": 53,
       "area": "BASICO COMUN",
       "creditosRequeridos": 149
     },
     {
-      "creditosAdquiridos": 144,
-      "diferencia": 0,
+      "creditosAdquiridos": 128,
+      "diferencia": 416,
       "area": "BASICA PARTICULAR",
       "creditosRequeridos": 144
     }
