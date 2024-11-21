@@ -1,0 +1,550 @@
+{
+  "creditosAdquiridos": 377,
+  "tipoCertificado": "PARCIAL",
+  "promedio": 97.56,
+  "materias": [
+    {
+      "nrc": "153356",
+      "fecha": "2019-12-11",
+      "calificacion": "100(CIEN)",
+      "tipo": "ORDINARIO (OE)",
+      "descripcion": "FUNDAMENTOS FILOSOFICOS DE LA COMPUTACION",
+      "ciclo": "2019B",
+      "clave": "I7022",
+      "creditos": 8
+    },
+    {
+      "nrc": "125199",
+      "fecha": "2019-12-11",
+      "calificacion": "90(NOVENTA)",
+      "tipo": "ORDINARIO (OE)",
+      "descripcion": "INTRODUCCION A LA FISICA",
+      "ciclo": "2019B",
+      "clave": "I6123",
+      "creditos": 7
+    },
+    {
+      "nrc": "42449",
+      "fecha": "2019-12-11",
+      "calificacion": "95(NOVENTA Y CINCO)",
+      "tipo": "ORDINARIO (OE)",
+      "descripcion": "MATEMATICA DISCRETA",
+      "ciclo": "2019B",
+      "clave": "I5892",
+      "creditos": 8
+    },
+    {
+      "nrc": "42495",
+      "fecha": "2019-12-11",
+      "calificacion": "100(CIEN)",
+      "tipo": "ORDINARIO (OE)",
+      "descripcion": "METODOS MATEMATICOS I",
+      "ciclo": "2019B",
+      "clave": "I5893",
+      "creditos": 8
+    },
+    {
+      "nrc": "42679",
+      "fecha": "2019-12-11",
+      "calificacion": "90(NOVENTA)",
+      "tipo": "ORDINARIO (OE)",
+      "descripcion": "SEMINARIO DE SOLUCION DE PROBLEMAS DE METODOS MATEMATICOS I",
+      "ciclo": "2019B",
+      "clave": "I5894",
+      "creditos": 5
+    },
+    {
+      "nrc": "159296",
+      "fecha": "2020-05-29",
+      "calificacion": "97(NOVENTA Y SIETE)",
+      "tipo": "ORDINARIO (OE)",
+      "descripcion": "ARQUITECTURA DE COMPUTADORAS",
+      "ciclo": "2020A",
+      "clave": "I7023",
+      "creditos": 8
+    },
+    {
+      "nrc": "42515",
+      "fecha": "2020-05-29",
+      "calificacion": "100(CIEN)",
+      "tipo": "ORDINARIO (OE)",
+      "descripcion": "METODOS MATEMATICOS II",
+      "ciclo": "2020A",
+      "clave": "I5895",
+      "creditos": 8
+    },
+    {
+      "nrc": "42577",
+      "fecha": "2020-05-29",
+      "calificacion": "100(CIEN)",
+      "tipo": "ORDINARIO (OE)",
+      "descripcion": "PROGRAMACION",
+      "ciclo": "2020A",
+      "clave": "I5882",
+      "creditos": 8
+    },
+    {
+      "nrc": "153374",
+      "fecha": "2020-05-29",
+      "calificacion": "96(NOVENTA Y SEIS)",
+      "tipo": "ORDINARIO (OE)",
+      "descripcion": "SEMINARIO DE SOLUCION DE PROBLEMAS DE ARQUITECTURA DE COMPUTADORAS",
+      "ciclo": "2020A",
+      "clave": "I7024",
+      "creditos": 5
+    },
+    {
+      "nrc": "57302",
+      "fecha": "2020-05-29",
+      "calificacion": "75(SETENTA Y CINCO)",
+      "tipo": "ORDINARIO (OE)",
+      "descripcion": "SEMINARIO DE SOLUCION DE PROBLEMAS DE METODOS MATEMATICOS II",
+      "ciclo": "2020A",
+      "clave": "I5896",
+      "creditos": 5
+    },
+    {
+      "nrc": "153398",
+      "fecha": "2020-05-29",
+      "calificacion": "100(CIEN)",
+      "tipo": "ORDINARIO (OE)",
+      "descripcion": "SEMINARIO DE SOLUCION DE PROBLEMAS DE PROGRAMACION",
+      "ciclo": "2020A",
+      "clave": "I5883",
+      "creditos": 5
+    },
+    {
+      "nrc": "87290",
+      "fecha": "2020-12-16",
+      "calificacion": "92(NOVENTA Y DOS)",
+      "tipo": "ORDINARIO (OE)",
+      "descripcion": "ESTADISTICA Y PROCESOS ESTOCASTICOS",
+      "ciclo": "2020B",
+      "clave": "I5897",
+      "creditos": 8
+    },
+    {
+      "nrc": "42360",
+      "fecha": "2020-12-16",
+      "calificacion": "96(NOVENTA Y SEIS)",
+      "tipo": "ORDINARIO (OE)",
+      "descripcion": "ESTRUCTURAS DE DATOS I",
+      "ciclo": "2020B",
+      "clave": "I5886",
+      "creditos": 8
+    },
+    {
+      "nrc": "57146",
+      "fecha": "2020-12-16",
+      "calificacion": "98(NOVENTA Y OCHO)",
+      "tipo": "ORDINARIO (OE)",
+      "descripcion": "METODOS MATEMATICOS III",
+      "ciclo": "2020B",
+      "clave": "I7020",
+      "creditos": 8
+    },
+    {
+      "nrc": "146219",
+      "fecha": "2020-12-16",
+      "calificacion": "91(NOVENTA Y UNO)",
+      "tipo": "ORDINARIO (OE)",
+      "descripcion": "REDES DE COMPUTADORAS Y PROTOCOLOS DE COMUNICACION",
+      "ciclo": "2020B",
+      "clave": "I7031",
+      "creditos": 8
+    },
+    {
+      "nrc": "42654",
+      "fecha": "2020-12-16",
+      "calificacion": "98(NOVENTA Y OCHO)",
+      "tipo": "ORDINARIO (OE)",
+      "descripcion": "SEMINARIO DE SOLUCION DE PROBLEMAS DE ESTRUCTURAS DE DATOS I",
+      "ciclo": "2020B",
+      "clave": "I5887",
+      "creditos": 5
+    },
+    {
+      "nrc": "56980",
+      "fecha": "2020-12-16",
+      "calificacion": "100(CIEN)",
+      "tipo": "ORDINARIO (OE)",
+      "descripcion": "SEMINARIO DE SOLUCION DE PROBLEMAS DE METODOS MATEMATICOS III",
+      "ciclo": "2020B",
+      "clave": "I7021",
+      "creditos": 5
+    },
+    {
+      "nrc": "43588",
+      "fecha": "2021-07-06",
+      "calificacion": "100(CIEN)",
+      "tipo": "ORDINARIO (OE)",
+      "descripcion": "ADMINISTRACION",
+      "ciclo": "2021A",
+      "clave": "I7370",
+      "creditos": 7
+    },
+    {
+      "nrc": "138620",
+      "fecha": "2021-07-06",
+      "calificacion": "100(CIEN)",
+      "tipo": "ORDINARIO (OE)",
+      "descripcion": "BASES DE DATOS",
+      "ciclo": "2021A",
+      "clave": "I5890",
+      "creditos": 8
+    },
+    {
+      "nrc": "130033",
+      "fecha": "2021-07-06",
+      "calificacion": "100(CIEN)",
+      "tipo": "ORDINARIO (OE)",
+      "descripcion": "ESTRUCTURAS DE DATOS II",
+      "ciclo": "2021A",
+      "clave": "I5888",
+      "creditos": 8
+    },
+    {
+      "nrc": "50004",
+      "fecha": "2021-07-06",
+      "calificacion": "100(CIEN)",
+      "tipo": "ORDINARIO (OE)",
+      "descripcion": "ETICA PROFESIONAL",
+      "ciclo": "2021A",
+      "clave": "ID220",
+      "creditos": 4
+    },
+    {
+      "nrc": "90836",
+      "fecha": "2021-07-06",
+      "calificacion": "96(NOVENTA Y SEIS)",
+      "tipo": "ORDINARIO (OE)",
+      "descripcion": "SEMINARIO DE SOLUCION DE PROBLEMAS DE BASES DE DATOS",
+      "ciclo": "2021A",
+      "clave": "I5891",
+      "creditos": 5
+    },
+    {
+      "nrc": "138619",
+      "fecha": "2021-07-06",
+      "calificacion": "100(CIEN)",
+      "tipo": "ORDINARIO (OE)",
+      "descripcion": "SEMINARIO DE SOLUCION DE PROBLEMAS DE ESTRUCTURAS DE DATOS II",
+      "ciclo": "2021A",
+      "clave": "I5889",
+      "creditos": 5
+    },
+    {
+      "nrc": "78144",
+      "fecha": "2021-07-06",
+      "calificacion": "100(CIEN)",
+      "tipo": "ORDINARIO (OE)",
+      "descripcion": "SEMINARIO DE SOLUCION DE PROBLEMAS DE REDES DE COMPUTADORAS Y PROTOCOLOS DE COMUNICACION",
+      "ciclo": "2021A",
+      "clave": "I7032",
+      "creditos": 5
+    },
+    {
+      "nrc": "59549",
+      "fecha": "2021-12-10",
+      "calificacion": "100(CIEN)",
+      "tipo": "ORDINARIO (OE)",
+      "descripcion": "ALGORITMIA",
+      "ciclo": "2021B",
+      "clave": "I5884",
+      "creditos": 8
+    },
+    {
+      "nrc": "147574",
+      "fecha": "2021-12-10",
+      "calificacion": "91(NOVENTA Y UNO)",
+      "tipo": "ORDINARIO (OE)",
+      "descripcion": "INGENIERIA DE SOFTWARE I",
+      "ciclo": "2021B",
+      "clave": "I5898",
+      "creditos": 8
+    },
+    {
+      "nrc": "42649",
+      "fecha": "2021-12-10",
+      "calificacion": "100(CIEN)",
+      "tipo": "ORDINARIO (OE)",
+      "descripcion": "SEMINARIO DE SOLUCION DE PROBLEMAS DE ALGORITMIA",
+      "ciclo": "2021B",
+      "clave": "I5885",
+      "creditos": 5
+    },
+    {
+      "nrc": "78114",
+      "fecha": "2021-12-10",
+      "calificacion": "99(NOVENTA Y NUEVE)",
+      "tipo": "ORDINARIO (OE)",
+      "descripcion": "SEMINARIO DE SOLUCION DE PROBLEMAS DE INGENIERIA DE SOFTWARE I",
+      "ciclo": "2021B",
+      "clave": "I5899",
+      "creditos": 5
+    },
+    {
+      "nrc": "42848",
+      "fecha": "2021-12-10",
+      "calificacion": "100(CIEN)",
+      "tipo": "ORDINARIO (OE)",
+      "descripcion": "TEORIA DE LA COMPUTACION",
+      "ciclo": "2021B",
+      "clave": "I5915",
+      "creditos": 8
+    },
+    {
+      "nrc": "146005",
+      "fecha": "2021-12-10",
+      "calificacion": "95(NOVENTA Y CINCO)",
+      "tipo": "ORDINARIO (OE)",
+      "descripcion": "TRADUCTORES DE LENGUAJES I",
+      "ciclo": "2021B",
+      "clave": "I7025",
+      "creditos": 8
+    },
+    {
+      "nrc": "42319",
+      "fecha": "2022-05-30",
+      "calificacion": "100(CIEN)",
+      "tipo": "ORDINARIO (OE)",
+      "descripcion": "COMPORTAMIENTO HUMANO EN LAS ORGANIZACIONES",
+      "ciclo": "2022A",
+      "clave": "I6184",
+      "creditos": 7
+    },
+    {
+      "nrc": "147818",
+      "fecha": "2022-05-30",
+      "calificacion": "97(NOVENTA Y SIETE)",
+      "tipo": "ORDINARIO (OE)",
+      "descripcion": "SEGURIDAD",
+      "ciclo": "2022A",
+      "clave": "I7037",
+      "creditos": 8
+    },
+    {
+      "nrc": "103844",
+      "fecha": "2022-05-30",
+      "calificacion": "100(CIEN)",
+      "tipo": "ORDINARIO (OE)",
+      "descripcion": "SEMINARIO DE SOLUCION DE PROBLEMAS DE SISTEMAS OPERATIVOS",
+      "ciclo": "2022A",
+      "clave": "I7030",
+      "creditos": 5
+    },
+    {
+      "nrc": "164140",
+      "fecha": "2022-05-30",
+      "calificacion": "100(CIEN)",
+      "tipo": "ORDINARIO (OE)",
+      "descripcion": "SEMINARIO DE SOLUCION DE PROBLEMAS DE TRADUCTORES DE LENGUAJES I",
+      "ciclo": "2022A",
+      "clave": "I7026",
+      "creditos": 5
+    },
+    {
+      "nrc": "165795",
+      "fecha": "2022-05-30",
+      "calificacion": "100(CIEN)",
+      "tipo": "ORDINARIO (OE)",
+      "descripcion": "SISTEMAS OPERATIVOS",
+      "ciclo": "2022A",
+      "clave": "I7029",
+      "creditos": 8
+    },
+    {
+      "nrc": "119905",
+      "fecha": "2022-12-09",
+      "calificacion": "97(NOVENTA Y SIETE)",
+      "tipo": "ORDINARIO (OE)",
+      "descripcion": "COMPUTACION TOLERANTE A FALLAS",
+      "ciclo": "2022B",
+      "clave": "I7036",
+      "creditos": 8
+    },
+    {
+      "nrc": "130032",
+      "fecha": "2022-12-09",
+      "calificacion": "100(CIEN)",
+      "tipo": "ORDINARIO (OE)",
+      "descripcion": "SEMINARIO DE SOLUCION DE PROBLEMAS DE INTELIGENCIA ARTIFICIAL I",
+      "ciclo": "2022B",
+      "clave": "I7039",
+      "creditos": 5
+    },
+    {
+      "nrc": "138643",
+      "fecha": "2022-12-09",
+      "calificacion": "100(CIEN)",
+      "tipo": "ORDINARIO (OE)",
+      "descripcion": "SEMINARIO DE SOLUCION DE PROBLEMAS DE TRADUCTORES DE LENGUAJES II",
+      "ciclo": "2022B",
+      "clave": "I7028",
+      "creditos": 5
+    },
+    {
+      "nrc": "131871",
+      "fecha": "2022-12-09",
+      "calificacion": "100(CIEN)",
+      "tipo": "ORDINARIO (OE)",
+      "descripcion": "TRADUCTORES DE LENGUAJES II",
+      "ciclo": "2022B",
+      "clave": "I7027",
+      "creditos": 8
+    },
+    {
+      "nrc": "174378",
+      "fecha": "2023-05-26",
+      "calificacion": "100(CIEN)",
+      "tipo": "ORDINARIO (OE)",
+      "descripcion": "INTELIGENCIA ARTIFICIAL I",
+      "ciclo": "2023A",
+      "clave": "I7038",
+      "creditos": 8
+    },
+    {
+      "nrc": "147815",
+      "fecha": "2023-05-26",
+      "calificacion": "100(CIEN)",
+      "tipo": "ORDINARIO (OE)",
+      "descripcion": "PROGRAMACION PARA INTERNET",
+      "ciclo": "2023A",
+      "clave": "I5909",
+      "creditos": 8
+    },
+    {
+      "nrc": "124887",
+      "fecha": "2023-05-26",
+      "calificacion": "100(CIEN)",
+      "tipo": "ORDINARIO (OE)",
+      "descripcion": "SEMINARIO DE SOLUCION DE PROBLEMAS DE SISTEMAS OPERATIVOS DE RED",
+      "ciclo": "2023A",
+      "clave": "I7034",
+      "creditos": 5
+    },
+    {
+      "nrc": "123191",
+      "fecha": "2023-05-26",
+      "calificacion": "100(CIEN)",
+      "tipo": "ORDINARIO (OE)",
+      "descripcion": "SIMULACION POR COMPUTADORA",
+      "ciclo": "2023A",
+      "clave": "I7042",
+      "creditos": 8
+    },
+    {
+      "nrc": "131876",
+      "fecha": "2023-05-26",
+      "calificacion": "90(NOVENTA)",
+      "tipo": "ORDINARIO (OE)",
+      "descripcion": "SISTEMAS OPERATIVOS DE RED",
+      "ciclo": "2023A",
+      "clave": "I7033",
+      "creditos": 8
+    },
+    {
+      "nrc": "71251",
+      "fecha": "2023-05-26",
+      "calificacion": "100(CIEN)",
+      "tipo": "ORDINARIO (OE)",
+      "descripcion": "TOPICOS SELECTOS EN COMUNICACIONES",
+      "ciclo": "2023A",
+      "clave": "ET412",
+      "creditos": 9
+    },
+    {
+      "nrc": "194927",
+      "fecha": "2023-12-08",
+      "calificacion": "100(CIEN)",
+      "tipo": "ORDINARIO (OE)",
+      "descripcion": "INTELIGENCIA ARTIFICIAL II",
+      "ciclo": "2023B",
+      "clave": "I7040",
+      "creditos": 8
+    },
+    {
+      "nrc": "124889",
+      "fecha": "2023-12-08",
+      "calificacion": "100(CIEN)",
+      "tipo": "ORDINARIO (OE)",
+      "descripcion": "SISTEMAS CONCURRENTES Y DISTRIBUIDOS",
+      "ciclo": "2023B",
+      "clave": "I7035",
+      "creditos": 8
+    },
+    {
+      "nrc": "110287",
+      "fecha": "2024-05-30",
+      "calificacion": "100(ACREDITADO)",
+      "tipo": "ORDINARIO (OE)",
+      "descripcion": "PROYECTO DE ARQUITECTURA Y PROGRAMACION DE SISTEMAS",
+      "ciclo": "2024A",
+      "clave": "I7043",
+      "creditos": 20
+    },
+    {
+      "nrc": "110289",
+      "fecha": "2024-05-30",
+      "calificacion": "100(ACREDITADO)",
+      "tipo": "ORDINARIO (OE)",
+      "descripcion": "PROYECTO DE SISTEMAS DISTRIBUIDOS",
+      "ciclo": "2024A",
+      "clave": "I7045",
+      "creditos": 15
+    },
+    {
+      "nrc": "110288",
+      "fecha": "2024-05-30",
+      "calificacion": "100(ACREDITADO)",
+      "tipo": "ORDINARIO (OE)",
+      "descripcion": "PROYECTO DE SISTEMAS INTELIGENTES",
+      "ciclo": "2024A",
+      "clave": "I7044",
+      "creditos": 15
+    },
+    {
+      "nrc": "179990",
+      "fecha": "2024-05-20",
+      "calificacion": "100(CIEN)",
+      "tipo": "ORDINARIO (OE)",
+      "descripcion": "SEMINARIO DE SOLUCION DE PROBLEMAS DE INTELIGENCIA ARTIFICIAL II",
+      "ciclo": "2024A",
+      "clave": "I7041",
+      "creditos": 5
+    }
+  ],
+  "creditosArea": [
+    {
+      "creditosAdquiridos": 50,
+      "diferencia": 0,
+      "area": "ESPECIALIZANTE OBLIGATORIA",
+      "creditosRequeridos": 50
+    },
+    {
+      "creditosAdquiridos": 16,
+      "diferencia": 0,
+      "area": "ESPECIALIZANTE SELECTIVA",
+      "creditosRequeridos": 16
+    },
+    {
+      "creditosAdquiridos": 18,
+      "diferencia": 0,
+      "area": "OPTATIVA ABIERTA",
+      "creditosRequeridos": 16
+    },
+    {
+      "creditosAdquiridos": 149,
+      "diferencia": 0,
+      "area": "BASICO COMUN",
+      "creditosRequeridos": 149
+    },
+    {
+      "creditosAdquiridos": 144,
+      "diferencia": 0,
+      "area": "BASICA PARTICULAR",
+      "creditosRequeridos": 144
+    }
+  ],
+  "creditosRequeridos": 375
+}

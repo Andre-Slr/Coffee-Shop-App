@@ -6,6 +6,7 @@ import Encabezado from '../assets/encabezado';
 import Principal from '../pages/principal';
 import Directorio from '../pages/directorio';
 import Login from '../pages/login';
+import Datos from '../pages/estudiante/datos';
 
 const Stack = createStackNavigator();
 
@@ -21,6 +22,7 @@ export default function StackNavigator() {
       <Stack.Screen name="Principal" component={Principal} />
       <Stack.Screen name="Directorio" component={Directorio} />
       <Stack.Screen name="Login" component={Login} />
+      <Stack.Screen name="Datos" component={Datos} />
     </Stack.Navigator>
   );
 }

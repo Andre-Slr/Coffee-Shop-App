@@ -6,20 +6,33 @@ import {
 } from '@react-native-google-signin/google-signin';
 import auth from '@react-native-firebase/auth';
 import {supabase} from '../../pages/supabase/supabase';
-import {View, Alert, Button, Text, StyleSheet} from 'react-native';
+
+import {useNavigation} from '@react-navigation/native';
+
+import {
+  View,
+  Alert,
+  Button,
+  Text,
+  StyleSheet,
+  Image,
+  TouchableOpacity,
+} from 'react-native';
 import {useEffect, useState} from 'react';
 import {MyStyles} from '../../styles/constStyles';
+import {navigatorLock} from '@supabase/supabase-js';
 
 // https://react-native-google-signin.github.io/docs/original
 
 const Auth = () => {
+  const navigation = useNavigation();
   const [loggedIn, setLoggedIn] = useState(false);
   const [userInfo, setUserInfo] = useState([]);
   const [user, setUser] = useState([]);
 
   useEffect(() => {
     GoogleSignin.configure({
-      scopes: ['https://www.googleapis.com/auth/drive.readonly'],
+      scopes: ['email'],
       webClientId:
         '1016681221729-jrp0j69a5599ig333os7rt2ra0tt85nd.apps.googleusercontent.com',
     });
@@ -30,53 +43,56 @@ const Auth = () => {
 
   const onAuthStateChanged = user => {
     setUser(user);
-    console.log(user);
-    if (user) setLoggedIn(true);
+    // console.log(user);
+    if (user) {
+      setLoggedIn(true);
+      navigation.navigate('Datos');
+    }
   };
 
   const signIn = async () => {
     try {
       await GoogleSignin.hasPlayServices();
-      setUserInfo(await GoogleSignin.signIn());
-      // console.log(JSON.stringify(userInfo, null, 2));
-      const idToken = userInfo.data.idToken;
-      setLoggedIn(true);
-      if (idToken) {
-        console.log('ID token present!');
-        // Supabase
-        const {data, error} = await supabase.auth.signInWithIdToken({
-          provider: 'google',
-          token: idToken,
-        });
-        // Firebase
-        const credential = auth.GoogleAuthProvider.credential(idToken);
-        await auth().signInWithCredential(credential);
-        console.log(error, data);
-        console.log(userInfo);
-      } else {
-        console.log('no ID token present!');
+      const actualUserInfo = await GoogleSignin.signIn();
+      const email = actualUserInfo.data.user.email;
+      const domain = email.split('@');
+      // Revisa si es que el correo sea del dominio de la escuela
+      if (domain[1] != 'alumnos.udg.mx') {
+        Alert.alert(
+          'Correo no es de estudiante.',
+          'Para que lo sea, debe de terminar en @alumnos.udg.mx',
+        );
+        await GoogleSignin.revokeAccess();
+        setUser(null);
+        setUserInfo([]);
+        setLoggedIn(false);
+        return null;
       }
+      // console.log(JSON.stringify(actualUserInfo, null, 2));
+      const idToken = actualUserInfo.data.idToken;
+      if (!idToken) {
+        Alert.alert('No ID token available');
+      }
+      const credential = auth.GoogleAuthProvider.credential(idToken);
+      await auth().signInWithCredential(credential);
+      setLoggedIn(true);
+      setUserInfo(actualUserInfo);
+      console.log('Sign-In Successful');
     } catch (error) {
+      // console.error('Sign-In Error:', error);
       if (isErrorWithCode(error)) {
         switch (error.code) {
           case statusCodes.SIGN_IN_CANCELLED:
-            setLoggedIn(false);
-            Alert.alert('Cancel');
-            // User cancelled the login flow
+            Alert.alert('Sign-In Cancelled');
             break;
           case statusCodes.IN_PROGRESS:
-            Alert.alert('In progress');
-            // operation (eg. sign in) already in progress
+            Alert.alert('Sign-In In Progress');
             break;
           case statusCodes.PLAY_SERVICES_NOT_AVAILABLE:
-            setLoggedIn(false);
-            Alert.alert('Play Services not available');
-            // Android only, play services not available or outdated
+            Alert.alert('Play Services Not Available');
             break;
           default:
-            setLoggedIn(false);
-            Alert.alert(error.code);
-          // some other error happened
+            Alert.alert('Unknown Error', error.message);
         }
       }
     }
@@ -86,20 +102,20 @@ const Auth = () => {
     try {
       await GoogleSignin.revokeAccess();
       await GoogleSignin.signOut();
-      auth()
-        .signOut()
-        .then(() => Alert.alert('Your are signed out!'));
-      setLoggedIn(false);
+      await auth().signOut();
+      Alert.alert('You are signed out!');
+      setUser(null);
       setUserInfo([]);
+      setLoggedIn(false);
     } catch (error) {
-      console.log(error);
+      console.error('SignOut Error:', error);
     }
   };
 
   return (
     <View style={Styles.Body}>
       {!user && (
-        <View>
+        <View style={Styles.Container}>
           <Text>You are currently logged out</Text>
           <GoogleSigninButton
             style={{width: 200, height: 50}}
@@ -110,14 +126,16 @@ const Auth = () => {
         </View>
       )}
       {user && (
-        <View>
+        <View style={Styles.Container}>
           <Text>Welcome, {user.displayName}!</Text>
-          <Button
-            onPress={signOut}
-            title="LogOut"
-            color="red"
-            style={{width: 200, height: 50}}
-          />
+          {user.photoURL ? (
+            <Image source={{uri: user.photoURL}} style={Styles.UserPhoto} />
+          ) : (
+            <View style={Styles.UserPhoto} />
+          )}
+          <TouchableOpacity onPress={signOut} style={Styles.Buttons}>
+            <Text>Logout</Text>
+          </TouchableOpacity>
         </View>
       )}
     </View>
@@ -133,6 +151,23 @@ const Styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: MyStyles.mainColor,
+  },
+  Container: {
+    alignItems: 'center',
+  },
+  Buttons: {
+    width: 200,
+    height: 50,
+    backgroundColor: 'orange',
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderRadius: 5,
+  },
+  UserPhoto: {
+    width: 75,
+    height: 75,
+    margin: 10,
+    borderRadius: 18,
   },
 });
 

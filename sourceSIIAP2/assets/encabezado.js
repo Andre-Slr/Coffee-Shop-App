@@ -27,12 +27,12 @@ const Encabezado = ({navigation, route}) => {
 
             <View style={Styles.headerContent}>
               {/* Temperatura */}
-              <Text>28°C</Text>
+              <Text style={Styles.Texts}>28°C</Text>
 
               {/* Imagen CUCEI */}
-              <Text>Imagen CUCEI</Text>
+              <Text style={Styles.Texts}>Imagen CUCEI</Text>
 
-              <Text></Text>
+              <Text style={Styles.Texts}></Text>
             </View>
           </View>
         );
@@ -53,12 +53,12 @@ const Encabezado = ({navigation, route}) => {
 
             <View style={Styles.headerContent}>
               {/* Temperatura */}
-              <Text>28°C</Text>
+              <Text style={Styles.Texts}>28°C</Text>
 
               {/* Imagen CUCEI */}
-              <Text>Imagen CUCEI</Text>
+              <Text style={Styles.Texts}>Imagen CUCEI</Text>
 
-              <Text></Text>
+              <Text style={Styles.Texts}></Text>
             </View>
           </View>
         );
@@ -74,10 +74,10 @@ const Encabezado = ({navigation, route}) => {
 
             <View style={Styles.headerContent}>
               {/* Temperatura */}
-              <Text>28°C</Text>
+              <Text style={Styles.Texts}>28°C</Text>
 
               {/* Imagen CUCEI */}
-              <Text>Imagen CUCEI</Text>
+              <Text style={Styles.Texts}>Imagen CUCEI</Text>
 
               <Text style={Styles.loginText}></Text>
             </View>
@@ -85,12 +85,28 @@ const Encabezado = ({navigation, route}) => {
         );
       default:
         return (
-          <View style={Styles.headerContent}>
-            {/* Temperatura */}
-            <Text>28°C</Text>
+          <View>
+            <View style={Styles.headerContent}>
+              {/* Ir atrás */}
+              <TouchableOpacity onPress={() => navigation.popToTop()}>
+                <Text style={Styles.backText}>Back</Text>
+              </TouchableOpacity>
 
-            {/* Imagen CUCEI */}
-            <Text>Imagen CUCEI</Text>
+              {/* Autentificar */}
+              <TouchableOpacity onPress={goToLogin}>
+                <Text style={Styles.loginText}>Logout</Text>
+              </TouchableOpacity>
+            </View>
+
+            <View style={Styles.headerContent}>
+              {/* Temperatura */}
+              <Text style={Styles.Texts}>28°C</Text>
+
+              {/* Imagen CUCEI */}
+              <Text style={Styles.Texts}>Imagen CUCEI</Text>
+
+              <Text style={Styles.loginText}></Text>
+            </View>
           </View>
         );
     }
@@ -111,6 +127,10 @@ const Styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
+  },
+  Texts: {
+    color: 'black',
+    fontSize: 15,
   },
   loginText: {
     color: 'white',
