@@ -132,6 +132,45 @@ const Encabezado = ({navigation, route}) => {
             </View>
           </View>
         );
+      case 'Materias':
+        return (
+          <View>
+            <View style={Styles.headerContent}>
+              {/* Ir atrás */}
+              <TouchableOpacity onPress={() => navigation.navigate('Datos')}>
+                <Image
+                  source={require('../assets/images/back.png')}
+                  style={Styles.backImage}
+                />
+              </TouchableOpacity>
+
+              {/* Autentificar */}
+              <TouchableOpacity onPress={goToLogin}>
+                <Image
+                  source={require('../assets/images/logout.png')}
+                  style={Styles.Logout}
+                />
+              </TouchableOpacity>
+            </View>
+
+            <View style={Styles.headerContent}>
+              {/* Temperatura */}
+              <Text style={Styles.Texts}>28°C</Text>
+
+              <Text style={Styles.loginText}></Text>
+            </View>
+
+            <View style={Styles.headerContent}>
+              <Text style={Styles.Texts}></Text>
+              {/* Imagen CUCEI */}
+              <Image
+                source={require('../assets/images/CUCEI_logo.jpg')}
+                style={Styles.Logo}
+              />
+              <Text style={Styles.Texts}></Text>
+            </View>
+          </View>
+        );
       default:
         return (
           <View>

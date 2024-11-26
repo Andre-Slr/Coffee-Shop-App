@@ -148,7 +148,9 @@ const Datos = ({navigation}) => {
       <View style={Styles.ApartadoContenedor}>
         {/* Materias */}
         <TouchableOpacity
-          onPress={() => navigation.navigate('Materias')}
+          onPress={() =>
+            navigation.navigate('Materias', {dataEstudiante: dataEstudiante})
+          }
           style={Styles.ApartadoBloque}>
           <Text style={Styles.Texts}>Materias</Text>
         </TouchableOpacity>
