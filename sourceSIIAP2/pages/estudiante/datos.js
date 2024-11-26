@@ -14,37 +14,38 @@ const Datos = ({navigation}) => {
   const [dataEstudiante, setDataEstudiante] = useState([]);
 
   {
-    /* 
+    /*
+     */
+  }
+  useEffect(() => {
+    setDataEstudiante(data);
+  }, []);
+
+  {
+    /*
     useEffect(() => {
-      setDataEstudiante(data);
+      const fetchDatos = async () => {
+        try {
+          const response = await fetch(
+            'https://cuceimobile.space/Escuela/kardex.php',
+          );
+  
+          const parsedValue = await response.json();
+          //console.log('Datos recibidos:', parsedValue); // Para depurar
+          if (parsedValue) {
+            setDataEstudiante(parsedValue);
+          } else {
+            console.log('No se encontró la información solicitada.');
+          }
+        } catch (error) {
+          console.error('Error al obtener los datos:', error);
+        }
+      };
+  
+      fetchDatos();
     }, []);
     */
   }
-
-  {
-    /**/
-  }
-  useEffect(() => {
-    const fetchDatos = async () => {
-      try {
-        const response = await fetch(
-          'https://cuceimobile.space/Escuela/kardex.php',
-        );
-
-        const parsedValue = await response.json();
-        //console.log('Datos recibidos:', parsedValue); // Para depurar
-        if (parsedValue) {
-          setDataEstudiante(parsedValue);
-        } else {
-          console.log('No se encontró la información solicitada.');
-        }
-      } catch (error) {
-        console.error('Error al obtener los datos:', error);
-      }
-    };
-
-    fetchDatos();
-  }, []);
 
   const porcentaje =
     dataEstudiante.creditosAdquiridos && dataEstudiante.creditosRequeridos
@@ -63,7 +64,7 @@ const Datos = ({navigation}) => {
     backgroundGradientFromOpacity: 0,
     backgroundGradientTo: 'white',
     backgroundGradientToOpacity: 0,
-    color: (opacity = 1) => `rgba(36, 156, 255, ${opacity})`,
+    color: (opacity = 1) => `rgba(${MyStyles.chartRaw}, ${opacity})`,
     strokeWidth: 2, // optional, default 3
     barPercentage: 0.5,
     useShadowColorFromDataset: false, // optional
@@ -79,20 +80,17 @@ const Datos = ({navigation}) => {
     return (
       <View
         style={{
-          borderWidth: 0.5,
-          borderColor: 'white',
-          borderRadius: 18,
-          padding: 5,
+          padding: 8,
         }}>
         <Text style={[Styles.Texts, {textAlign: 'right'}]}>{item.area}</Text>
-        <Text style={[Styles.Texts, {marginTop: -10}]}>
+        <Text style={[Styles.Texts, {marginTop: -20}]}>
           {item.creditosAdquiridos}/{item.creditosRequeridos}
         </Text>
         <View
           style={{
             height: 10,
             width: '100%',
-            backgroundColor: 'rgba(36, 156, 255, 0.5)',
+            backgroundColor: MyStyles.chartBack,
             borderRadius: 18,
           }}
         />
@@ -100,7 +98,7 @@ const Datos = ({navigation}) => {
           style={{
             height: 10,
             width: `${progressCreditos}%`,
-            backgroundColor: 'rgba(36, 156, 255, 1)',
+            backgroundColor: MyStyles.chartFront,
             borderRadius: 18,
             marginTop: -10,
             marginBottom: 10,
@@ -205,12 +203,15 @@ const Styles = StyleSheet.create({
     backgroundColor: MyStyles.mainColor,
     borderRadius: 18,
     margin: 10,
+    marginTop: 0,
     marginHorizontal: 'auto',
     alignItems: 'center',
   },
   AreaList: {
     marginBottom: 10,
     padding: 5,
+    paddingTop: 10,
+    paddingBottom: -5,
     width: '95%',
   },
   Texts: {

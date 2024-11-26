@@ -5,14 +5,12 @@ import {
   statusCodes,
 } from '@react-native-google-signin/google-signin';
 import auth from '@react-native-firebase/auth';
-import {supabase} from '../../pages/supabase/supabase';
 
 import {useNavigation} from '@react-navigation/native';
 
 import {
   View,
   Alert,
-  Button,
   Text,
   StyleSheet,
   Image,
@@ -20,7 +18,6 @@ import {
 } from 'react-native';
 import {useEffect, useState} from 'react';
 import {MyStyles} from '../../styles/constStyles';
-import {navigatorLock} from '@supabase/supabase-js';
 
 // https://react-native-google-signin.github.io/docs/original
 

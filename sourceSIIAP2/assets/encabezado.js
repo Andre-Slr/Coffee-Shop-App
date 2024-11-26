@@ -1,10 +1,22 @@
-import React from 'react';
-import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
+import React, {useState} from 'react';
+import {View, Text, StyleSheet, TouchableOpacity, Image} from 'react-native';
+
+import {firebase} from '@react-native-firebase/auth';
 
 import {MyStyles} from '../styles/constStyles';
 
 const Encabezado = ({navigation, route}) => {
   const {name: page} = route; // Extraemos el nombre de la pantalla actual
+  const [loggedIn, setLoggedIn] = useState(false);
+  const auth = firebase.auth();
+
+  auth.onAuthStateChanged(user => {
+    if (user) {
+      setLoggedIn(true);
+    } else {
+      setLoggedIn(false);
+    }
+  });
 
   const goToLogin = () => {
     navigation.navigate('Login');
@@ -21,17 +33,29 @@ const Encabezado = ({navigation, route}) => {
 
               {/* Autentificar */}
               <TouchableOpacity onPress={goToLogin}>
-                <Text style={Styles.loginText}>Login</Text>
+                <Image
+                  source={
+                    loggedIn
+                      ? require('../assets/images/user.png')
+                      : require('../assets/images/login.png')
+                  }
+                  style={Styles.Login}
+                />
               </TouchableOpacity>
             </View>
 
             <View style={Styles.headerContent}>
               {/* Temperatura */}
               <Text style={Styles.Texts}>28°C</Text>
+            </View>
 
+            <View style={Styles.headerContent}>
+              <Text style={Styles.Texts}></Text>
               {/* Imagen CUCEI */}
-              <Text style={Styles.Texts}>Imagen CUCEI</Text>
-
+              <Image
+                source={require('../assets/images/CUCEI_logo.jpg')}
+                style={Styles.Logo}
+              />
               <Text style={Styles.Texts}></Text>
             </View>
           </View>
@@ -42,22 +66,37 @@ const Encabezado = ({navigation, route}) => {
             <View style={Styles.headerContent}>
               {/* Ir atrás */}
               <TouchableOpacity onPress={() => navigation.popToTop()}>
-                <Text style={Styles.backText}>Back</Text>
+                <Image
+                  source={require('../assets/images/back.png')}
+                  style={Styles.backImage}
+                />
               </TouchableOpacity>
 
               {/* Autentificar */}
               <TouchableOpacity onPress={goToLogin}>
-                <Text style={Styles.loginText}>Login</Text>
+                <Image
+                  source={
+                    loggedIn
+                      ? require('../assets/images/user.png')
+                      : require('../assets/images/login.png')
+                  }
+                  style={Styles.Login}
+                />
               </TouchableOpacity>
             </View>
 
             <View style={Styles.headerContent}>
               {/* Temperatura */}
               <Text style={Styles.Texts}>28°C</Text>
+            </View>
 
+            <View style={Styles.headerContent}>
+              <Text style={Styles.Texts}></Text>
               {/* Imagen CUCEI */}
-              <Text style={Styles.Texts}>Imagen CUCEI</Text>
-
+              <Image
+                source={require('../assets/images/CUCEI_logo.jpg')}
+                style={Styles.Logo}
+              />
               <Text style={Styles.Texts}></Text>
             </View>
           </View>
@@ -68,7 +107,10 @@ const Encabezado = ({navigation, route}) => {
             <View style={Styles.headerContent}>
               {/* Ir atrás */}
               <TouchableOpacity onPress={() => navigation.popToTop()}>
-                <Text style={Styles.backText}>Back</Text>
+                <Image
+                  source={require('../assets/images/back.png')}
+                  style={Styles.backImage}
+                />
               </TouchableOpacity>
             </View>
 
@@ -76,10 +118,17 @@ const Encabezado = ({navigation, route}) => {
               {/* Temperatura */}
               <Text style={Styles.Texts}>28°C</Text>
 
-              {/* Imagen CUCEI */}
-              <Text style={Styles.Texts}>Imagen CUCEI</Text>
-
               <Text style={Styles.loginText}></Text>
+            </View>
+
+            <View style={Styles.headerContent}>
+              <Text style={Styles.Texts}></Text>
+              {/* Imagen CUCEI */}
+              <Image
+                source={require('../assets/images/CUCEI_logo.jpg')}
+                style={Styles.Logo}
+              />
+              <Text style={Styles.Texts}></Text>
             </View>
           </View>
         );
@@ -89,12 +138,18 @@ const Encabezado = ({navigation, route}) => {
             <View style={Styles.headerContent}>
               {/* Ir atrás */}
               <TouchableOpacity onPress={() => navigation.popToTop()}>
-                <Text style={Styles.backText}>Back</Text>
+                <Image
+                  source={require('../assets/images/back.png')}
+                  style={Styles.backImage}
+                />
               </TouchableOpacity>
 
               {/* Autentificar */}
               <TouchableOpacity onPress={goToLogin}>
-                <Text style={Styles.loginText}>Logout</Text>
+                <Image
+                  source={require('../assets/images/logout.png')}
+                  style={Styles.Logout}
+                />
               </TouchableOpacity>
             </View>
 
@@ -102,10 +157,17 @@ const Encabezado = ({navigation, route}) => {
               {/* Temperatura */}
               <Text style={Styles.Texts}>28°C</Text>
 
-              {/* Imagen CUCEI */}
-              <Text style={Styles.Texts}>Imagen CUCEI</Text>
-
               <Text style={Styles.loginText}></Text>
+            </View>
+
+            <View style={Styles.headerContent}>
+              <Text style={Styles.Texts}></Text>
+              {/* Imagen CUCEI */}
+              <Image
+                source={require('../assets/images/CUCEI_logo.jpg')}
+                style={Styles.Logo}
+              />
+              <Text style={Styles.Texts}></Text>
             </View>
           </View>
         );
@@ -127,6 +189,7 @@ const Styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
+    marginTop: 5,
   },
   Texts: {
     color: 'black',
@@ -137,8 +200,29 @@ const Styles = StyleSheet.create({
     fontSize: 16,
   },
   backText: {
+    width: 30,
+    height: 30,
     color: 'white',
     fontSize: 16,
+  },
+  backImage: {
+    width: 30,
+    height: 30,
+  },
+  Logo: {
+    width: 150,
+    height: 57,
+    marginTop: -50,
+  },
+  Login: {
+    width: 30,
+    height: 30,
+    marginTop: 5,
+  },
+  Logout: {
+    width: 30,
+    height: 30,
+    marginTop: 5,
   },
 });
 
