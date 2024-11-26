@@ -46,7 +46,7 @@ const Styles = StyleSheet.create({
   },
   Texts: {
     color: 'black',
-    fontSize: 13,
+    fontSize: 15,
   },
   MateriaContainer: {
     width: '95%',

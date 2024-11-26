@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {View, Text, StyleSheet, TouchableOpacity, Image} from 'react-native';
 
 import {firebase} from '@react-native-firebase/auth';
@@ -8,7 +8,36 @@ import {MyStyles} from '../styles/constStyles';
 const Encabezado = ({navigation, route}) => {
   const {name: page} = route; // Extraemos el nombre de la pantalla actual
   const [loggedIn, setLoggedIn] = useState(false);
+  const [clima, setClima] = useState('');
+  const [climaIcon, setClimaIcon] = useState(
+    require('../assets/images/sun.png'),
+  );
   const auth = firebase.auth();
+
+  useEffect(() => {
+    const fetchClima = async () => {
+      try {
+        const response = await fetch(
+          'http://api.weatherapi.com/v1/current.json?key=37a58a61a88546e1a3f212325241911&q=Guadalajara&aqi=no',
+        );
+
+        const parsedValue = await response.json();
+        if (parsedValue) {
+          setClima(parsedValue.current.temp_c);
+          setClimaIcon({uri: 'https:' + parsedValue.current.condition.icon});
+        } else {
+          setClima('30');
+          setClimaIcon(require('../assets/images/sun.png'));
+        }
+      } catch (error) {
+        console.log('Error al obtener clima: ', error);
+        setClima('30');
+        setClimaIcon(require('../assets/images/sun.png'));
+      }
+    };
+
+    fetchClima();
+  }, []);
 
   auth.onAuthStateChanged(user => {
     if (user) {
@@ -46,7 +75,13 @@ const Encabezado = ({navigation, route}) => {
 
             <View style={Styles.headerContent}>
               {/* Temperatura */}
-              <Text style={Styles.Texts}>28°C</Text>
+              <View>
+                <Image
+                  source={climaIcon || require('../assets/images/sun.png')}
+                  style={Styles.climaImage}
+                />
+                <Text style={Styles.TextsClima}>{clima}°C</Text>
+              </View>
             </View>
 
             <View style={Styles.headerContent}>
@@ -87,7 +122,13 @@ const Encabezado = ({navigation, route}) => {
 
             <View style={Styles.headerContent}>
               {/* Temperatura */}
-              <Text style={Styles.Texts}>28°C</Text>
+              <View>
+                <Image
+                  source={climaIcon || require('../assets/images/sun.png')}
+                  style={Styles.climaImage}
+                />
+                <Text style={Styles.TextsClima}>{clima}°C</Text>
+              </View>
             </View>
 
             <View style={Styles.headerContent}>
@@ -116,7 +157,13 @@ const Encabezado = ({navigation, route}) => {
 
             <View style={Styles.headerContent}>
               {/* Temperatura */}
-              <Text style={Styles.Texts}>28°C</Text>
+              <View>
+                <Image
+                  source={climaIcon || require('../assets/images/sun.png')}
+                  style={Styles.climaImage}
+                />
+                <Text style={Styles.TextsClima}>{clima}°C</Text>
+              </View>
 
               <Text style={Styles.loginText}></Text>
             </View>
@@ -155,7 +202,13 @@ const Encabezado = ({navigation, route}) => {
 
             <View style={Styles.headerContent}>
               {/* Temperatura */}
-              <Text style={Styles.Texts}>28°C</Text>
+              <View>
+                <Image
+                  source={climaIcon || require('../assets/images/sun.png')}
+                  style={Styles.climaImage}
+                />
+                <Text style={Styles.TextsClima}>{clima}°C</Text>
+              </View>
 
               <Text style={Styles.loginText}></Text>
             </View>
@@ -194,7 +247,13 @@ const Encabezado = ({navigation, route}) => {
 
             <View style={Styles.headerContent}>
               {/* Temperatura */}
-              <Text style={Styles.Texts}>28°C</Text>
+              <View>
+                <Image
+                  source={climaIcon || require('../assets/images/sun.png')}
+                  style={Styles.climaImage}
+                />
+                <Text style={Styles.TextsClima}>{clima}°C</Text>
+              </View>
 
               <Text style={Styles.loginText}></Text>
             </View>
@@ -251,7 +310,17 @@ const Styles = StyleSheet.create({
   Logo: {
     width: 150,
     height: 57,
-    marginTop: -50,
+    marginTop: -90,
+  },
+  climaImage: {
+    width: 60,
+    height: 60,
+    margin: -20,
+    marginLeft: -15,
+  },
+  TextsClima: {
+    color: 'black',
+    fontSize: 12,
   },
   Login: {
     width: 30,

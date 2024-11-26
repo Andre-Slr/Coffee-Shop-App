@@ -15,37 +15,37 @@ const Datos = ({navigation}) => {
 
   {
     /*
+    useEffect(() => {
+      setDataEstudiante(data);
+    }, []);
      */
   }
-  useEffect(() => {
-    setDataEstudiante(data);
-  }, []);
 
   {
     /*
-    useEffect(() => {
-      const fetchDatos = async () => {
-        try {
-          const response = await fetch(
-            'https://cuceimobile.space/Escuela/kardex.php',
-          );
-  
-          const parsedValue = await response.json();
-          //console.log('Datos recibidos:', parsedValue); // Para depurar
-          if (parsedValue) {
-            setDataEstudiante(parsedValue);
-          } else {
-            console.log('No se encontró la información solicitada.');
-          }
-        } catch (error) {
-          console.error('Error al obtener los datos:', error);
-        }
-      };
-  
-      fetchDatos();
-    }, []);
-    */
+     */
   }
+  useEffect(() => {
+    const fetchDatos = async () => {
+      try {
+        const response = await fetch(
+          'https://cuceimobile.space/Escuela/kardex.php',
+        );
+
+        const parsedValue = await response.json();
+        //console.log('Datos recibidos:', parsedValue); // Para depurar
+        if (parsedValue) {
+          setDataEstudiante(parsedValue);
+        } else {
+          console.log('No se encontró la información solicitada.');
+        }
+      } catch (error) {
+        console.error('Error al obtener los datos:', error);
+      }
+    };
+
+    fetchDatos();
+  }, []);
 
   const porcentaje =
     dataEstudiante.creditosAdquiridos && dataEstudiante.creditosRequeridos
